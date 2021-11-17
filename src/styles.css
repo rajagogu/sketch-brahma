@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+.componentStyle{
+    width: 1200px;
+    margin: auto;
+    height: auto
+}
+.Boarder{
+    font-family: cursive;
+    color:red
+}
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+.font{
+    font-family:cursive;
+}
