@@ -1,0 +1,125 @@
+<div class="card componentStyle">
+    <table class="componentStyle" style="width: auto;">
+        <tr>
+            <td>
+                <!-- Button trigger modal -->
+                <div style="text-align: left;padding:10px;">
+                    <h4>Company List by State '{{state}}'</h4>
+                </div>
+                <!--List-->
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100 ver1 m-b-110">
+                            <div class="table100-head">
+                                <table>
+                                    <thead>
+                                        <tr class="row100 head">
+                                            <th class="cell100 column1">Name</th>
+                                            <th class="cell100 column2">State</th>
+                                            <th class="cell100 column3">Website</th>
+                                            <th class="cell100 column4">Action(s)</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="table100-body js-pscroll">
+                                <table>
+                                    <tbody>
+                                        <tr class="row100 body"
+                                            *ngFor="let company of companies| paginate: { itemsPerPage: 4, currentPage: defaultPage };index as i">
+                                            <td class="cell100 column1">
+                                                {{company.name}}
+                                            </td>
+                                            <td class="cell100 column2">
+                                                {{company.state}}
+                                            </td>
+                                            <td class="cell100 column3">
+                                                {{company.website_url}}
+                                            </td>
+                                            <td class="cell100 column4">
+                                                <a [routerLink]="['/company-detail',company.id]" title="View By Company"
+                                                    class="btn btn-info"><i class="fa fa-eye"
+                                                        aria-hidden="true"></i></a>&nbsp;
+                                                <a class="btn btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#mpcompany"><i class="fas fa-edit"></i></a>&nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;background-color:lightblue;" colspan="5">
+                                                <pagination-controls (pageChange)="defaultPage = $event">
+                                                </pagination-controls>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="mpcompany" tabindex="-1" aria-labelledby="companyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content font">
+                    <form [formGroup]="companyForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="companyModalLabel">
+                                {{modalTitle}}
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="mb-3" style="text-align: left;">
+                                <label class="form-label" for="txtname">
+                                    Company
+                                </label>
+                                <input [(ngModel)]="companyData.name" formControlName="name" class="form-control"
+                                    type="text" placeholder="Enter Company Name" id="txtname">
+                                <div *ngIf="Name.touched&&Name.errors" class="Boarder">
+                                    <div *ngIf="Name.errors.required">
+                                        Name is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3" style="text-align: left;">
+                                <label class="form-label" for="txtcity">
+                                    City
+                                </label>
+                                <input [(ngModel)]="companyData.city" formControlName="city" type="text"
+                                    class="form-control" placeholder="Enter City" id="txtcity">
+                                <div *ngIf="City.touched&&City.errors" class="Boarder">
+                                    <div *ngIf="City.errors.required">
+                                        City is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3" style="text-align: left;">
+                                <label class="form-label" for="txtmobile">
+                                    Mobile
+                                </label>
+                                <input [(ngModel)]="companyData.phone" formControlName="mobile" type="number"
+                                    class="form-control" placeholder="Enter Mobile" id="txtmobile">
+                                <div *ngIf="Mobile.touched&&Mobile.errors" class="Boarder">
+                                    <div *ngIf="Mobile.errors.required">
+                                        Mobile is required
+                                    </div>
+                                    <div *ngIf="Mobile.errors.pattern">
+                                        Enter correct MobileNumber
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" [disabled]="companyForm.invalid" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> -->
+    </table>
+</div>
